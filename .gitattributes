@@ -1,1 +1,2 @@
 lib/*.dll filter=lfs diff=lfs merge=lfs -text
+tools/**/*.dll filter=lfs diff=lfs merge=lfs -text
