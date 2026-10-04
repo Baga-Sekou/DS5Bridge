@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows10.0.26100.0</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>DS5Bridge</AssemblyName>
+    <RootNamespace>DS5Bridge</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>assets\icon.ico</ApplicationIcon>
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="assets\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="9.0.0" />
+  </ItemGroup>
+
+  <!-- HIDMaestro.Core.dll carries the UMDF2 virtual-controller engine.
+       Drop the release binary (or a locally built one) into lib\ and the
+       virtual-DualSense path compiles in. Without it the app still builds
+       and runs: device detection, tray, settings and rumble plumbing are
+       all live; only VirtualDS5 becomes a no-op stub. -->
+  <PropertyGroup Condition="Exists('$(MSBuildThisFileDirectory)lib\HIDMaestro.Core.dll')">
+    <DefineConstants>$(DefineConstants);HIDMAESTRO</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="Exists('$(MSBuildThisFileDirectory)lib\HIDMaestro.Core.dll')">
+    <Reference Include="HIDMaestro.Core">
+      <HintPath>$(MSBuildThisFileDirectory)lib\HIDMaestro.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.SDK.NET">
+      <HintPath>$(MSBuildThisFileDirectory)lib\Microsoft.Windows.SDK.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRT.Runtime">
+      <HintPath>$(MSBuildThisFileDirectory)lib\WinRT.Runtime.dll</HintPath>
+    </Reference>
+    <None Include="lib\HIDMaestro.Core.dll;lib\Microsoft.Windows.SDK.NET.dll;lib\WinRT.Runtime.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
