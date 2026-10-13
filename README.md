@@ -63,12 +63,13 @@ Core/     DeviceWatcher / DeviceChangeWatcher / InputPump / VirtualDS5 /
 App/      BridgeService / TrayApp / Settings / SettingsForm / StartupManager
 assets/   图标（make_icon.py 可重新生成）
 docs/     DS5 协议字节布局参考
-lib/      HIDMaestro.Core.dll 及依赖（Git LFS）
+lib/      HIDMaestro.Core.dll 及依赖（Git LFS）+ LICENSE-HIDMaestro.txt（许可全文）
 ```
 
 ## 致谢
 
 - [HIDMaestro](https://github.com/hifihedgehog/HIDMaestro)（MIT）— 纯用户态虚拟控制器引擎，
-  `lib/HIDMaestro.Core.dll` 来自其 release。
+  `lib/HIDMaestro.Core.dll` 来自其 release，按 MIT 要求随附许可证全文见
+  [`lib/LICENSE-HIDMaestro.txt`](lib/LICENSE-HIDMaestro.txt)。
 - [HidHide](https://github.com/nefarius/HidHide)（MIT）— 隐藏物理设备的过滤驱动。
 - DS5 报告字节布局参考自社区（含 `ds.evua.cc` 的 WebHID 解析器），见 `docs/ds5_protocol.md`。
