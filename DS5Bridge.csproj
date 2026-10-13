@@ -10,6 +10,12 @@
     <Platforms>AnyCPU;x64</Platforms>
     <AssemblyName>DS5Bridge</AssemblyName>
     <RootNamespace>DS5Bridge</RootNamespace>
+    <Version>0.1.0</Version>
+    <FileVersion>0.1.0.0</FileVersion>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <Product>DS5Bridge</Product>
+    <Company>Baga-Sekou</Company>
+    <Description>Present a GameSir 九尾狐 pad to games as a virtual Sony DualSense, routing DS5-tuned haptics to its voice-coil motors.</Description>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>assets\icon.ico</ApplicationIcon>
     <InvariantGlobalization>true</InvariantGlobalization>
